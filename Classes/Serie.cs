@@ -26,7 +26,8 @@ namespace RegSeries
             retorno += $"Genero: {this.Genero}" + Environment.NewLine;
             retorno += $"Titulo: {this.Titulo}" + Environment.NewLine;
             retorno += $"Descrição: {this.Descricao}" + Environment.NewLine;
-            retorno += $"Ano: {this.Ano}";
+            retorno += $"Ano: {this.Ano}" + Environment.NewLine;
+            retorno += $"Excluído: {this.Excluido}"; 
             return retorno;
         }
 
@@ -38,6 +39,11 @@ namespace RegSeries
         public int RetornaId()
         {
             return this.Id;
+        }
+
+        public bool RetornaExcluido()
+        {
+            return this.Excluido;
         }
 
         public void Excluir()
