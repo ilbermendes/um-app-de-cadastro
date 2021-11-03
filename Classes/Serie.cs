@@ -40,7 +40,7 @@ namespace RegSeries
             return this.Id;
         }
 
-        public void Exclui()
+        public void Excluir()
         {
             this.Excluido = true;
         }

@@ -6,9 +6,9 @@ namespace RegSeries.Interfaces
     {
         List<T> Lista();
         T RetornaPorId(int id);
-        void Insere(T entidade);
+        void Insere(T obj);
         void Exclui(int id);
-        void Atualiza(int id, T entidade);
+        void Atualiza(int id, T obj);
         int ProximoId();
 
     }
