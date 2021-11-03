@@ -28,5 +28,15 @@ namespace RegSeries
             return retorno;
         }
 
+        public string RetornaTitulo()
+        {
+            return this.Titulo;
+        }
+
+        public int RetornaId()
+        {
+            return this.Id;
+        }
+
     }
 }
