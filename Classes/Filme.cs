@@ -2,11 +2,11 @@ using System;
 
 namespace RegSeries
 {
-    public class Serie : EntidadeBase
+    public class Filme : EntidadeBase
     {
-        private string Pais { get; set; }
+        private string Pais {get; set; }
 
-        public Serie(int id, string titulo, int ano, string pais)
+        public Filme(int id, string titulo, int ano, string pais)
         {
             this.Id = id;
             this.Titulo = titulo;
@@ -35,7 +35,6 @@ namespace RegSeries
             return this.Titulo;
         }
 
-
         public int RetornaAno()
         {
             return this.Ano;
@@ -50,6 +49,5 @@ namespace RegSeries
         {
             this.Excluido = true;
         }
-
     }
 }
