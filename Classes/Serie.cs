@@ -35,10 +35,15 @@ namespace RegSeries
             return this.Titulo;
         }
 
-
         public int RetornaAno()
         {
             return this.Ano;
+        }
+
+        
+        public string RetornaPais()
+        {
+            return this.Pais;
         }
 
         public bool RetornaExcluido()
@@ -49,6 +54,13 @@ namespace RegSeries
         public void Excluir()
         {
             this.Excluido = true;
+        }
+
+        public void AtualizaSerie(string titulo, int ano, string pais)
+        {
+            this.Titulo = titulo;
+            this.Ano = ano;
+            this.Pais = pais;
         }
 
     }

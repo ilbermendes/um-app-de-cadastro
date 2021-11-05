@@ -8,9 +8,9 @@ namespace RegSeries
     {
         private List<Serie> listaSerie = new List<Serie>();
 
-        public void Atualiza(int id, Serie obj)
+        public void Atualiza(int id, string titulo, int ano, string pais)
         {
-            listaSerie[id] = obj;
+            listaSerie[id].AtualizaSerie(titulo, ano, pais);
         }
 
         public void Exclui(int id)

@@ -8,7 +8,7 @@ namespace RegSeries.Interfaces
         T RetornaPorId(int id);
         void Insere(T obj);
         void Exclui(int id);
-        void Atualiza(int id, T obj);
+        void Atualiza(int id, string titulo, int ano, string pais);
         int ProximoId();
 
     }

@@ -5,36 +5,36 @@ namespace RegSeries
 {
     public class FilmeRepositorio : IRepositorio<Filme>
     {
-        private List<Filme> listaSerie = new List<Filme>();
+        private List<Filme> listaFilme = new List<Filme>();
 
-        public void Atualiza(int id, Filme obj)
+        public void Atualiza(int id, string titulo, int ano, string pais)
         {
-             listaSerie[id] = obj;
+             listaFilme[id].AtualizaFilme(titulo, ano, pais);
         }
 
         public void Exclui(int id)
         {
-             listaSerie[id].Excluir();
+             listaFilme[id].Excluir();
         }
 
         public void Insere(Filme obj)
         {
-            listaSerie.Add(obj);
+            listaFilme.Add(obj);
         }
 
         public List<Filme> Lista()
         {
-            return listaSerie;
+            return listaFilme;
         }
 
         public int ProximoId()
         {
-             return listaSerie.Count;
+             return listaFilme.Count;
         }
 
         public Filme RetornaPorId(int id)
         {
-            return listaSerie[id];
+            return listaFilme[id];
         }
     }
 }

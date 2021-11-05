@@ -4,11 +4,14 @@ namespace RegSeries
 {
     public class Filme : EntidadeBase
     {
+        static int contadorId = 0;
+
         private string Pais {get; set; }
 
-        public Filme(int id, string titulo, int ano, string pais)
+        public Filme(string titulo, int ano, string pais)
         {
-            this.Id = id;
+            this.Id = 0 + contadorId;
+            contadorId++;
             this.Titulo = titulo;
             this.Ano = ano;
             this.Pais = pais;
@@ -48,6 +51,13 @@ namespace RegSeries
         public void Excluir()
         {
             this.Excluido = true;
+        }
+        
+        public void AtualizaFilme(string titulo, int ano, string pais)
+        {
+            this.Titulo = titulo;
+            this.Ano = ano;
+            this.Pais = pais;
         }
     }
 }
