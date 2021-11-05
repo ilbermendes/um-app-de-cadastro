@@ -4,11 +4,14 @@ namespace RegSeries
 {
     public class Serie : EntidadeBase
     {
+        static int contadorId = 0;
+
         private string Pais { get; set; }
 
-        public Serie(int id, string titulo, int ano, string pais)
+        public Serie(string titulo, int ano, string pais)
         {
-            this.Id = id;
+            this.Id = 0 + contadorId;
+            contadorId++;
             this.Titulo = titulo;
             this.Ano = ano;
             this.Pais = pais;

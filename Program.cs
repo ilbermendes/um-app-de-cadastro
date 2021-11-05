@@ -30,11 +30,9 @@ namespace RegSeries
                                 break;
                             case "3":
                                 AtualizaFilme(menu);
-                                Console.WriteLine("Atualizando...");
                                 break;
                             case "E":
-                                ExcluiFilme();
-                                Console.WriteLine("Excluindo...");
+                                ExcluiFilme(); 
                                 break;
                             case "C":
                                 Console.Clear();
@@ -56,16 +54,16 @@ namespace RegSeries
                         switch (opcaoSerie)
                         {
                             case "1":
-                                Console.WriteLine("Listando...");
+                                ListaSerie();
                                 break;
                             case "2":
-                                Console.WriteLine("Adicionando...");
+                                AdicionaSerie(menu);
                                 break;
                             case "3":
-                                Console.WriteLine("Atualizando...");
+                                AtualizaSerie(menu);
                                 break;
                             case "E":
-                                Console.WriteLine("Excluindo...");
+                                ExcluiSerie();
                                 break;
                             case "C":
                                 Console.Clear();
@@ -81,7 +79,7 @@ namespace RegSeries
             }
         }
 
-        
+
         private static void ListaFilmes()
         {
             Console.WriteLine("Listando...");
@@ -96,9 +94,9 @@ namespace RegSeries
                 var excluido = item.RetornaExcluido();
                 if (!excluido)
                 {
-                    Console.WriteLine("ID: {0} - {1} - {2} - {3}", item.RetornaId(), 
-                                                                   item.RetornaTitulo(), 
-                                                                   item.RetornaAno(), 
+                    Console.WriteLine("ID: {0} - {1} - {2} - {3}", item.RetornaId(),
+                                                                   item.RetornaTitulo(),
+                                                                   item.RetornaAno(),
                                                                    item.RetornaPais());
                 }
             }
@@ -116,19 +114,74 @@ namespace RegSeries
 
         private static void AtualizaFilme(MenuUsuario menu)
         {
-           Console.Write("Digite o id para atualizar "); 
-           int indice = int.Parse(Console.ReadLine());
-           var titulo = menu.AdicionarTitulo();
-           var ano = menu.AdicionarAno();
-           var pais = menu.AdicionarPais();
-           repositorioFilme.Atualiza(indice, titulo, ano, pais);        
+            Console.Write("Digite o id para atualizar ");
+            int indice = int.Parse(Console.ReadLine());
+            var titulo = menu.AdicionarTitulo();
+            var ano = menu.AdicionarAno();
+            var pais = menu.AdicionarPais();
+            repositorioFilme.Atualiza(indice, titulo, ano, pais);
+            Console.WriteLine("Atualizando...");
         }
 
         private static void ExcluiFilme()
         {
             Console.Write("Digite o id para excluir: ");
             int indice = int.Parse(Console.ReadLine());
-			repositorioFilme.Exclui(indice);
+            repositorioFilme.Exclui(indice);
+            Console.WriteLine("Excluindo...");
         }
+
+        private static void ListaSerie()
+        {
+            Console.WriteLine("Listando...");
+            var lista = repositorioSerie.Lista();
+            if (lista.Count == 0)
+            {
+                Console.WriteLine("Nenhuma série cadastrada.");
+                return;
+            }
+            foreach (var item in lista)
+            {
+                var excluido = item.RetornaExcluido();
+                if (!excluido)
+                {
+                    Console.WriteLine("ID: {0} - {1} - {2} - {3}", item.RetornaId(),
+                                                                   item.RetornaTitulo(),
+                                                                   item.RetornaAno(),
+                                                                   item.RetornaPais());
+                }
+            }
+        }
+
+        private static void AdicionaSerie(MenuUsuario menu)
+        {
+            var titulo = menu.AdicionarTitulo();
+            var ano = menu.AdicionarAno();
+            var pais = menu.AdicionarPais();
+            Serie novaSerie = new Serie(titulo, ano, pais);
+            repositorioSerie.Insere(novaSerie);
+            Console.WriteLine("Adicionando...");
+        }
+
+        private static void AtualizaSerie(MenuUsuario menu)
+        {
+            Console.Write("Digite o id para atualizar ");
+            int indice = int.Parse(Console.ReadLine());
+            var titulo = menu.AdicionarTitulo();
+            var ano = menu.AdicionarAno();
+            var pais = menu.AdicionarPais();
+            repositorioSerie.Atualiza(indice, titulo, ano, pais);
+            Console.WriteLine("Atualizando...");
+        }
+
+        private static void ExcluiSerie()
+        {
+            Console.Write("Digite o id para excluir: ");
+            int indice = int.Parse(Console.ReadLine());
+            repositorioSerie.Exclui(indice);
+            Console.WriteLine("Excluindo...");
+        }
+
+
     }
 }

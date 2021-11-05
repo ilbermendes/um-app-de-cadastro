@@ -43,6 +43,11 @@ namespace RegSeries
             return this.Ano;
         }
 
+        public string RetornaPais()
+        {
+            return this.Pais;
+        }
+
         public bool RetornaExcluido()
         {
             return this.Excluido;
